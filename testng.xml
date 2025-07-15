@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Device Suite">
+    
+    <listeners>
+        <listener class-name="api.utilities.ExtentReportManager"></listener>
+    </listeners>
+    
+    <test thread-count="5" name="Device Tests">
+        <classes>
+            <!-- <class name="api.test.DeviceTests"></class> -->
+            <class name="api.test.DeviceTestsPropertiesFlow"></class>
+            <!-- <class name="api.test.DataDrivenTests"></class> -->
+        </classes>
+    </test>
+</suite>
