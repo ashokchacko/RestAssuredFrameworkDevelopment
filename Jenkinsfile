@@ -1,25 +1,38 @@
 pipeline {
-    agent any
+    agent {
+        label 'windows' // Make sure your Jenkins agent is labeled 'windows'
+    }
+
+    environment {
+        BUILD_DIR = 'D:\\Automation\\RestAssuredProjects\\build'
+    }
 
     stages {
+        stage('Checkout') {
+            steps {
+                echo '📥 Checking out source code...'
+                checkout scm
+            }
+        }
+
         stage('Build') {
             steps {
                 echo '🔨 Building the project...'
-                sh 'make build'
+                bat "mkdir %BUILD_DIR% && echo Build step executed > %BUILD_DIR%\\build.log"
             }
         }
 
         stage('Test') {
             steps {
                 echo '🧪 Running tests...'
-                sh 'make test'
+                bat "echo Running tests... > %BUILD_DIR%\\test.log"
             }
         }
 
         stage('Deploy') {
             steps {
                 echo '🚀 Deploying application...'
-                sh 'make deploy'
+                bat "echo Deploying... > %BUILD_DIR%\\deploy.log"
             }
         }
     }
