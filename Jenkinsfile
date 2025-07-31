@@ -4,7 +4,7 @@ pipeline {
     }
 
     tools {
-            allure '2.34.1' // Name configured in Global Tool Configuration
+            allure 'myallure' // Name configured in Global Tool Configuration
     }
 
     environment {
