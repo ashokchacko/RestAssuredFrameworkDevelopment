@@ -21,8 +21,9 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo '🔨 Building the project...'
-                bat "mkdir %BUILD_DIR% && echo Build step executed > %BUILD_DIR%\\build.log"
+                echo '🔨 Cleaning and building the project...'
+                bat "if exist %BUILD_DIR% (del /Q %BUILD_DIR%\\*) else (mkdir %BUILD_DIR%)"
+                bat "echo Build step executed > %BUILD_DIR%\\build.log"
             }
         }
 
