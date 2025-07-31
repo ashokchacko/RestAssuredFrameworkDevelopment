@@ -3,6 +3,10 @@ pipeline {
         label 'windows' // Make sure your Jenkins agent is labeled 'windows'
     }
 
+    tools {
+            allure '2.34.1' // Name configured in Global Tool Configuration
+    }
+
     environment {
         BUILD_DIR = 'D:\\Automation\\RestAssuredProjects\\build'
     }
@@ -34,6 +38,18 @@ pipeline {
                 echo '🚀 Deploying application...'
                 bat "echo Deploying... > %BUILD_DIR%\\deploy.log"
             }
+        }
+        stage('Allure Report') {
+                   steps {
+                       echo '📊 Generating Allure report...'
+                       allure([
+                           includeProperties: false,
+                           jdk: '',
+                           properties: [],
+                           reportBuildPolicy: 'ALWAYS',
+                           results: [[path: 'target/allure-results']]
+                       ])
+                   }
         }
     }
 
