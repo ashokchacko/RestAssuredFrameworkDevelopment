@@ -1,0 +1,8 @@
+1755.58.551 [main] DEBUG api.test.DeviceTestsPropertiesFlow - ******* Creating user *******
+1756.00.857 [main] DEBUG api.test.DeviceTestsPropertiesFlow - ******* User is created *******
+1756.00.868 [main] DEBUG api.test.DeviceTestsPropertiesFlow - ******* Reading user info *******
+1756.01.205 [main] DEBUG api.test.DeviceTestsPropertiesFlow - ******* User info is displayed *******
+1756.01.207 [main] DEBUG api.test.DeviceTestsPropertiesFlow - ******* Updating user *******
+1756.01.576 [main] DEBUG api.test.DeviceTestsPropertiesFlow - ******* User is updated *******
+1756.01.580 [main] DEBUG api.test.DeviceTestsPropertiesFlow - ******* Deleting user *******
+1756.02.437 [main] DEBUG api.test.DeviceTestsPropertiesFlow - ******* User deleted *******
