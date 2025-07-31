@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo '🧪 Running tests...'
-                bat "echo Running tests... > %BUILD_DIR%\\test.log"
+                bat "mvn clean test"
             }
         }
 
@@ -38,6 +38,14 @@ pipeline {
     }
 
     post {
+        always {
+                    echo '📦 Pipeline finished — publishing report...'
+                    publishHTML(target: [
+                        reportDir: 'target/surefire-reports',
+                        reportFiles: 'index.html',
+                        reportName: 'TestNG Report'
+                    ])
+        }
         success {
             echo '✅ Pipeline completed successfully!'
         }
